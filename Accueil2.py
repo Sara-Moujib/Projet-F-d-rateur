@@ -56,17 +56,20 @@ def openQuotidien():
             ints =chatQuotidien.predict_class(msg)
             res = chatQuotidien.getResponse(ints, intents)
             chatBoxQuotidien.insert(END, "Bot: " + res + '\n\n')
+            timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            chatBoxQuotidien.insert(END, timing + '\n\n')
             chatBoxQuotidien.config(state=DISABLED)
             chatBoxQuotidien.yview(END)
         else:
             messagebox.showerror("Message d'erreur","vous ne pouvez pas envoyer un empty message") 
-       
+    trainQuotidien.trainChatBot()   
     rootQuotidien = Tk()
     rootQuotidien.title("Suivi Quotidien")
     rootQuotidien.iconbitmap("C:/Users/ERRAKI-OTMAN/Downloads/ENSIAS-tr.ico")
     rootQuotidien.geometry("400x500")
     rootQuotidien.resizable(width=FALSE, height=FALSE)
-    chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial")
+    scrollbar = Scrollbar(rootQuotidien)
+    chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
 
     chatBoxQuotidien.config(state=DISABLED)
     sendQuotidienButton = Button(rootQuotidien, font=("Verdana",12,'bold'), text="send", width="12", height=5,
@@ -75,8 +78,10 @@ def openQuotidien():
     EntryBoxQuotidien = Text(rootQuotidien, bd=0, bg="white",width="29", height="5", font="Arial")
 
     chatBoxQuotidien.place(x=6,y=6, height=386, width=370)
-    EntryBoxQuotidien.place(x=128, y=401, height=40, width=265)
+    EntryBoxQuotidien.place(x=128, y=401, height=40, width=250)
     sendQuotidienButton.place(x=6, y=401, height=40)
+    scrollbar.config(command = chatBoxQuotidien.yview )
+    scrollbar.place(x=376,y=6, height=386)
 
 ##################################################################################################################
 
@@ -98,6 +103,8 @@ def openUrgence():
             res = chatUrgence.getResponse(ints, intents)
         
             chatBoxUrgence.insert(END, "Aida: " + res + '\n\n')
+            timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            chatBoxUrgence.insert(END, timing + '\n\n')
             chatBoxUrgence.config(state=DISABLED)
             chatBoxUrgence.yview(END)
             
@@ -110,20 +117,24 @@ def openUrgence():
     rootUrgence.iconbitmap("C:/Users/ERRAKI-OTMAN/Downloads/ENSIAS-tr.ico")
     rootUrgence.geometry("400x500")
     rootUrgence.resizable(width=FALSE, height=FALSE)
-    chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial")
+    scrollbar = Scrollbar(rootUrgence)
+    chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
     chatBoxUrgence.config(state=DISABLED)
     sendUrgence = Button(rootUrgence, font=("Verdana",12,'bold'), text="send", width="12", height=5,
                     bd=0, bg="red", activebackground="#3c9d9b",fg='#ffffff',
                     command= sendUrgence)
     EntryBoxUrgence = Text(rootUrgence, bd=0, bg="white",width="29", height="5", font="Arial")
     chatBoxUrgence.place(x=6,y=6, height=386, width=370)
-    EntryBoxUrgence.place(x=128, y=401, height=40, width=265)
+    EntryBoxUrgence.place(x=128, y=401, height=40, width=250)
     sendUrgence.place(x=6, y=401, height=40)
-    
+    scrollbar.config(command = chatBoxUrgence.yview )
+    scrollbar.place(x=376,y=6, height=386)
+
 
     
 
 ##################################################################################################################""""
+
 
 def openQuestion():
     
@@ -141,7 +152,9 @@ def openQuestion():
             ints =chatQuestion.predict_class(msg)
             res = chatQuestion.getResponse(ints, intents)
         
-            chatBoxQuestion.insert(END, "Aida: " + res + '\n\n')
+            chatBoxQuestion.insert(END, "Aida: " + res + '\n')
+            timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            chatBoxQuestion.insert(END, timing + '\n\n')
             chatBoxQuestion.config(state=DISABLED)
             chatBoxQuestion.yview(END)
             
@@ -154,16 +167,24 @@ def openQuestion():
     rootQuestion.iconbitmap("C:/Users/ERRAKI-OTMAN/Downloads/ENSIAS-tr.ico")
     rootQuestion.geometry("400x500")
     rootQuestion.resizable(width=FALSE, height=FALSE)
-    chatBoxQuestion = Text(rootQuestion, bd=0, bg="white", height="8", width="50", font="Arial")
+    scrollbar = Scrollbar(rootQuestion)
+    chatBoxQuestion = Text(rootQuestion, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
     chatBoxQuestion.config(state=DISABLED)
     sendQuestionButton = Button(rootQuestion, font=("Verdana",12,'bold'), text="send", width="12", height=5,
                     bd=0, bg="blue", activebackground="#3c9d9b",fg='#ffffff',
                     command= sendQuestion)
     EntryBoxQuestion = Text(rootQuestion, bd=0, bg="white",width="29", height="5", font="Arial")
     chatBoxQuestion.place(x=6,y=6, height=386, width=370)
-    EntryBoxQuestion.place(x=128, y=401, height=40, width=265)
+    EntryBoxQuestion.place(x=128, y=401, height=40, width=250)
     sendQuestionButton.place(x=6, y=401, height=40)
-
+    
+    
+    scrollbar.config(command = chatBoxQuestion.yview )
+    scrollbar.place(x=376,y=6, height=386)
+    chatImage=ImageTk.PhotoImage(Image.open("Quotidien.jpg"))
+    
+    ImageLabel=Label(rootQuestion,image=chatImage).pack(side=TOP,anchor=NE)
+    
 
 ###############################################################################################
 def openPeriodique():
@@ -184,8 +205,10 @@ def openPeriodique():
             ChatBox.config(foreground="#446665", font=("Verdana", 12 ))
     
             ints =chatPeriodique.predict_class(msg)
-            res = trainPeriodique.getResponse(ints, intents)
+            res = trainPeriodique.getResponse(ints,intents)
             ChatBox.insert(END, "Aida: " + res + '\n\n')
+            timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ChatBox.insert(END, timing + '\n\n')
             ChatBox.config(state=DISABLED)
             ChatBox.yview(END)
         else:
@@ -198,6 +221,7 @@ def openPeriodique():
     rootPeriodique.iconbitmap("C:/Users/ERRAKI-OTMAN/Downloads/ENSIAS-tr.ico")
     rootPeriodique.geometry("400x500")
     rootPeriodique.resizable(width=FALSE, height=FALSE)
+    scrollbar = Scrollbar(rootPeriodique)
     ChatBox = Text(rootPeriodique, bd=0, bg="white", height="8", width="50", font="Arial")
     ChatBox.config(state=DISABLED)
     sendPeriodiqueButton = Button(rootPeriodique, font=("Verdana",12,'bold'), text="send", width="12", height=5,
@@ -205,9 +229,12 @@ def openPeriodique():
                     command= sendPeriodique )
     EntryBoxPeriodique = Text(rootPeriodique, bd=0, bg="white",width="29", height="5", font="Arial")
     ChatBox.place(x=6,y=6, height=386, width=370)
-    EntryBoxPeriodique.place(x=128, y=401, height=40, width=265)
+    EntryBoxPeriodique.place(x=128, y=401, height=40, width=250)
+    scrollbar = Scrollbar(rootPeriodique, command=ChatBox.yview, cursor="heart")
+    ChatBox['yscrollcommand'] = scrollbar.set
     sendPeriodiqueButton.place(x=6, y=401, height=40) 
-
+    scrollbar.config(command = ChatBox.yview )
+    scrollbar.place(x=376,y=6, height=386)
     
 #########################################################################################"
 boolm=True
@@ -218,13 +245,18 @@ def protectEye():
         ChatBox.config(bg="black")
         Disclaimer.config(bg="black")
         Disclaimer.config(foreground="white")
-        
+        Espace1.config(background="black")
+        Espace2.config(background="black")
+        Espace3.config(background="black")
         
         boolm=False
     else:    
         ChatBox.config(bg="white")
         Disclaimer.config(bg="white")
         Disclaimer.config(foreground="black")
+        Espace1.config(background="white")
+        Espace2.config(background="white")
+        Espace3.config(background="white")
         boolm=True
 
 
@@ -251,10 +283,12 @@ TimeLabel=Label(root,text=timing,background="violet").pack(side=TOP,anchor=NE)
 accueilImage=ImageTk.PhotoImage(Image.open("bienvenue.png"))
 ImageLabel=Label(ChatBox,image=accueilImage).grid(row=0,column=3)
 #Bienvenue=Label(ChatBox,text="Bienvenue",background="white").grid(row=0,column=3)
-Espace=Label(ChatBox,text="",background="white").grid(row=0,column=0)
+Espace1=Label(ChatBox,text="",background="white")
+Espace1.grid(row=0,column=0)
 #Espace=Label(ChatBox,text="       ",background="white").grid(row=1,column=0)
 
-Espace=Label(ChatBox,text="",background="white").grid(row=1,column=1)
+Espace2=Label(ChatBox,text="",background="white")
+Espace2.grid(row=1,column=1)
 
 Urgence=Button(ChatBox, font=("Verdana",12,'bold'), text=" Cas Urgence", width="13", height=5,
                     bd=0, bg="red", activebackground="#3c9d9b",fg='#ffffff',command=openUrgence ).grid(row=2,column=0,columnspan=2,padx=10)
@@ -262,7 +296,8 @@ Urgence=Button(ChatBox, font=("Verdana",12,'bold'), text=" Cas Urgence", width="
 Quotidien=Button(ChatBox, font=("Verdana",12,'bold'), text="Suivi Quotidien ", width="14", height=5,
                     bd=0, bg="green", activebackground="#3c9d9b",fg='#ffffff',command=openQuotidien ).grid(row=2,column=4,columnspan=2,rowspan=2)
 #Espace=Label(ChatBox,text="",background="white").grid(row=2,column=7)
-Espace=Label(ChatBox,background="white").grid(row=5,column=2)                   
+Espace3=Label(ChatBox,background="white") 
+Espace3.grid(row=5,column=2)                  
 Periodique=Button(ChatBox, font=("Verdana",12,'bold'), text="Suivi Périodique", width="13", height=5,
                     bd=0, bg="violet", activebackground="#3c9d9b",fg='#ffffff',command=openPeriodique).grid(row=6,column=0,columnspan=2,rowspan=2)
 #Espace=Label(ChatBox,text="",background="white").grid(row=6,column=3)
