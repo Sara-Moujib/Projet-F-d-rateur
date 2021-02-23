@@ -1,0 +1,118 @@
+{"intents": [
+	{"tag" : "greetings",
+		"patterns" :["Salut" , "Salut à vous" , "Salut à toi"],
+		"responses" : ["Salut" , "Salut à vous"],
+		"context": [""]
+	},
+
+	{"tag" : "morning_greetings ",
+	 	"patterns" :["Bonjour" , "Bonjour à vous" , "Bonjour à toi"],
+		"responses" : ["Bonjour" , "Bonjour à vous"],
+	 	"context": [""]
+	},
+	{"tag" : "evening_greetings ",
+	 	"patterns" :["Bonsoir" , "Bonsoir à vous" , "Bonsoir à toi"],
+	 	"responses" : ["Bonsoir" , "Bonsoir à vous"],
+	 	"context": [""]
+	},
+	{"tag" : "help ",
+		"patterns" :["J'ai besoin de ton aide" ,"J'ai besoin de l'aide", "Je veux ton aide", "Je veux de l'aide", "Bonsoir à vous, j'ai besoin de votre aide" , "Bonsoir à toi, j'ai besoin de ton aide", "Bonjour à toi, j'ai besoin de ton aide" , "Bonjour à vous, j'ai besoin de votre aide" , "Salut , j'ai besoin de votre aide" , "Salut, je veux de l'aide"],
+		"responses" : ["Comment je peux vous aider" , "Comment voulez vous que je vous aide","Qu'est ce que je peux faire pour vous"],
+		"context": [""]
+	},
+	{"tag" : "goodbye ",
+		"patterns" :["A bientôt" , "Aurevoir" , "Bonne nuit", "Bonne soirée" , "Bon fin de journée" , "Bonne journée" , "A demain"],
+		"responses" : ["A bientôt" , "Aurevoir" ],
+		"context": [""]
+	},
+
+   	{"tag" : "thank_you ",
+		"patterns" :["Merci", "Merci à bientôt" , "Merci aurevoir" , "Merci bonne nuit", "Merci bonne soirée" , "Merci bon fin de journée" , "Merci bonne journée" , "merci à demain"],
+		"responses" : ["Je vous en prie" , "De rien" , "Pas de soucis" ],
+		"context": [""]
+	},
+
+        {"tag":"questions",
+		"patterns":["Est-ce que peut-on guérir le diabète ?","Est-il possible d’en guérir?"],
+		"responses":["Non, pour le moment c’est une maladie incurable mais il y a de plus en plus de traitements performants qui aident à bien contrôler la maladie avec une bonne qualité de vie.","Non seulement on ne guérit pas du diabète, mais cette maladie chronique s’aggrave inévitablement avec le temps car le pancréas se fatigue et produit de moins en moins d’insuline. Cela dit, si le traitement a été précoce et toujours suivi avec sérieux, le patient ralentit cette détérioration."],
+		"context":[""]
+	},
+	{"tag":"hyperglycémie",
+		"patterns":["Qu’est-ce qu'une hyperglycémie ?"],
+		"responses":["Une hyperglycémie est une concentration de sucre dans le sang (glycémie) trop élevée.Pour un patient diabétique, une hyperglycémie correpond à une glycémie ≥ 1,80 g/l."],
+		"context":[""]
+	},
+	{"tag":" glycosurie",
+		"patterns":["Qu'est ce que la glycosurie?"],
+		"responses":["La glycosurie est la présence de glucose dans l’urine. Normalement l’urine ne contient pas de glucose.Quand il y a une hyperglycémie importante le glucose passe dans l’urine avec beaucoup d’eau. C’est pour cela que l’on urine beaucoup et souvent, on a soif et on est fatigué."],
+		"context":[""]
+	},
+	{"tag":"cétonurie",
+		"patterns":["Qu'est-ce que la cétonurie?"],
+		"responses":["C’est la présence dans l’urine de substances appelées corps cétoniques.Les corps cétoniques sont des déchets qui apparaissent lorsque l’organisme ne peut plus utiliser de sucre et qu’il brûle des graisses."],
+		"context":[""]
+	},
+	{"tag":"questions_metier",
+		"patterns":["Puis je exercer n'importe quel métier?"],
+		"responses":["Comme pour d’autres maladies chroniques, certains métiers, emplois (ou certaines évolutions de carrière) peuvent être interdits ou non recommandés aux personnes diabétiques."],
+		"context":[""]
+	},
+	{"tag":"enfants",
+		"patterns":["Peut on avoir des enfants quand on est une femme diabétique?"],
+		"responses":["Sauf exception (rétinopathie, hypertension sévères…), il n’y a aucune contre-indication aujourd’hui pour les femmes diabétiques à avoir des enfants."
+		,"Oui! mais quand on est diabétique (type 1 ou 2) il faut bien préparer la grossesse avant même la conception. De nombreuses études ont clairement démontré que l’évolution de la grossesse est liée au degré de contrôle glycémique depuis la conception jusqu’à l’accouchement.",
+		"Oui, or  la grossesse sans encadrement expose le fœtus dès les premiers mois et obligera la maman à faire plus d’efforts pour équilibrer son diabète. Autant donc anticiper et parler de votre désir de maternité à votre médecin."],
+		"context":[""]
+	},
+	{"tag":"Sport",
+		"patterns":["L'insuline fait-elle grossir?"],
+		"responses":["L’insuline en quantité adéquate ne fait pas grossir par elle-même.","Non elle ne fait pas grossir  mais lorsque l’on s’injecte trop d’insuline, les hypoglycémies sont plus fréquentes et on doit compenser par du sucre et des collations. C’est cela qui fait grossir.",
+		"Si on mange plus on est obligé de s’injecter plus d’insuline. Mais ce n’est pas l’insuline qui fait grossir ; c’est le fait de manger plus."],
+		"context":[""]
+	},
+	{"tag":"vaccin",
+		"patterns":["Pourquoi est t-il important de se faire vacciner?"],
+		"responses":["L’enfant qui a un diabète doit être vacciné comme les autres.Les maladies infectieuses peuvent provoquer de la fièvre et cela s’accompagne souvent d’une hausse de la glycémie. En plus, les maladies provoquent souvent une perte d’appétit. Donc le contrôle métabolique est plus compliqué.."],
+		"context":[""]
+	},
+	{"tag":"diabète",
+		"patterns":["Qu’est-ce que le diabète"],
+		"responses":["Cette maladie se caractérise par une élévation anormale du taux de sucre dans le sang: plus de 1,26g de sucre par litre de sang à jeun ou plus de 2g par litre à n’ importe quel moment de la journée. Cette hyperglycémie est provoquée par un phénomène qu’on appelle l’insulino-résistance, c’est-à-dire un manque d’efficacité de cette hormone.",
+		""],
+		"context":[""]
+	},
+	{"tag":"Type",
+		"patterns":["En existe-t-il plusieurs types?"],
+		"responses":["Oui, deux principalement:Type 1 et Type 2","Le diabète de type 1 touche 10 à 15% de la population totale des diabétiques. Il concerne des personnes qui ne fabriquent pas ou très peu d’insuline: les cellules du pancréas, normalement dévolues à cette production, sont détruites au fur et à mesure. Il apparaît en général durant l’enfance ou l’adolescence.Le diabète de type 2 (85 à 90% des malades) se déclenche chez les personnes présentant dans un premier temps une insulino-résistance, puis une insulinopénie. Il apparaît en général après 40 ans."],
+		"context":[""]
+	},
+	{"tag":"symptômes",
+		"patterns":["Ses symptômes sont-ils faciles à reconnaître?"],
+		"responses":["En cas de diabète de type 1, les symptômes sont très visibles. Une soif importante, des mictions fréquentes, un amaigrissement inexplicable, des fourmillements dans les mains et les pieds, des douleurs musculaires, des infections, des plaies qui cicatrisent mal, une vision troublé"],
+		"context":[""]
+	},
+	{"tag":"causes",
+		"patterns":[" Quelles sont les causes"],
+		"responses":["Le surpoids, principalement quand il est localisé sur le ventre, constitue l’une des causes principales de l’insulino-résistance. En effet, cette graisse abdominale - plus que d’autres situées ailleurs sur le corps - libère dans le sang des grandes quantités d’acides gras qui gênent l’action de l’insuline",
+		    "Au-delà de 80cm de tour de taille pour une femme et 94cm pour un homme, le risque commence à monter. L’hérédité constitue un autre facteur important: avec un parent, un frère ou une sœur diabétique, le risque de l’être aussi augmente fortement. L’âge est également à prendre en considération: à partir de 35 ans, le risque grimpe régulièrement."],
+		"context":[""]
+	},
+	{"tag":"complications",
+		"patterns":["En cas de diabète mal équilibré, quelles complications?"],
+		"responses":["L’excès de glucose dans le sang entraîne des conséquences lourdes.La circulation dans les gros vaisseaux est aussi touchée et provoque une macro-angiopathie diabétique."],
+		"context":[]
+	},
+	{"tag":"pancréas",
+	   	"patterns":["Quel rapport entre le pancréas et le diabète ?"],
+	    	"responses":["le diabète se caractérise par un dysfonctionnement du pancréas. Plus précisément, cet organe ne produit plus suffisamment d’insuline, l’hormone qui permet de réguler le taux de sucre dans le sang, autrement dit la « glycémie »."],
+	    	"context":[]
+	},
+	{"tag":"sexualité_féminine ",
+	        "patterns":[" Le diabète influe-t-il sur la sexualité féminine ?"],
+	        "responses":["Si l’on sait que le diabète peut être source de dysfonction érectile, on parle moins des conséquences sur la sexualité des femmes. Pourtant, une étude révèle que 8 femmes diabétiques sur 10 sont insatisfaites de leur vie intime après sept ans de diabète. De plus, il semblerait que les femmes diabétiques soient davantage sujettes aux infections urinaires, mais aussi génitales"],
+	        "context":[]
+	}
+]
+}
+
+
