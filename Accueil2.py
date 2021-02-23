@@ -19,8 +19,8 @@ import QuestionGenerale.chatbot as chatQuestion
 import QuestionGenerale.train_chatbot as trainQuestion
  
 
-import casUrgence.chatbot as chatUrgence
-import casUrgence.train_chatbot as trainUrgence
+import CasUrgence.chatbot as chatUrgence
+import CasUrgence.train_chatbot as trainUrgence
 
 import SuiviPeriodique.chatbot as chatPeriodique
 import SuiviPeriodique.train_chatbot as trainPeriodique
@@ -168,7 +168,7 @@ def openQuestion():
 ###############################################################################################
 def openPeriodique():
     
-    intents = json.loads(open('SuiviPeriodique/intents.json').read())
+    
     trainPeriodique.trainChatBot()
     def sendPeriodique():
         
@@ -185,9 +185,7 @@ def openPeriodique():
     
             ints =chatPeriodique.predict_class(msg)
             res = trainPeriodique.getResponse(ints, intents)
-
-            
-            ChatBox.insert(END, "Aida: " + "Hello There" + '\n\n')
+            ChatBox.insert(END, "Aida: " + res + '\n\n')
             ChatBox.config(state=DISABLED)
             ChatBox.yview(END)
         else:

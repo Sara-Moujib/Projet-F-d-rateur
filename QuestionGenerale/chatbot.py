@@ -9,6 +9,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 
+
 import json
 import random
 
@@ -16,7 +17,7 @@ import random
 
 
 lemmatizer = WordNetLemmatizer()
-model = load_model('chatbot_model.h5')
+model = load_model("chatbot_model.h5")
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
@@ -24,6 +25,7 @@ classes = pickle.load(open('classes.pkl','rb'))
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - splitting words into array
+    lemmatizer = WordNetLemmatizer()
     sentence_words = nltk.word_tokenize(sentence)
     print("hi I am in clean up sentence")
     # stemming every word - reducing to base form
@@ -49,6 +51,7 @@ def bag_of_words(sentence, words, show_details=True):
 
 def predict_class(sentence):
     # filter below  threshold predictions
+    model = load_model("chatbot_model.h5")
     p = bag_of_words(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
     ERROR_THRESHOLD = 0.25
@@ -71,9 +74,7 @@ def getResponse(ints, intents_json):
     return result
 
 
-#Creating tkinter GUI
-import tkinter
-from tkinter import *
+
 
 
 

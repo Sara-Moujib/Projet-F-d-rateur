@@ -4,8 +4,8 @@ from tkinter import messagebox
 from PIL import ImageTk,Image
 from time import strftime
 from datetime import datetime
-import chatbot as chat
-import train_chatbot as train
+
+
 import json
 import pickle
 from nltk.stem import WordNetLemmatizer
@@ -15,22 +15,38 @@ from keras.models import load_model
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
-import p
+#import QuestionGenerale.chatbot as chatQuestion
+#import QuestionGenerale.train_chatbot as trainQuestion
+ 
+
+#import casUrgence.chatbot as chatUrgence
+#import casUrgence.train_chatbot as trainUrgence
+
+import chatbot as chatUrgence
+import train_chatbot as trainUrgence
+#import SuiviPeriodique.chatbot as chatPeriodique
+#import SuiviPeriodique.train_chatbot as trainPeriodique
+
+
+#import SuiviQuotidien.chatbot as chatQuotidien
+#import SuiviQuotidien.train_chatbot as trainQuotidien
+
+
 ###########################################################################################
 #                   Définition des fonctions des nouvelles fenêtres                       #
 ###########################################################################################
 
-lemmatizer = WordNetLemmatizer()
-model = load_model('chatbot_model.h5')
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+
 
 
 ##########################################################################################
 
 def openQuotidien():
-    train.trainChatBot()
+    lemmatizer = WordNetLemmatizer()
+    trainQuotidien.trainChatBot()
+    intents = json.loads(open('SuiviQuotidien/intents.json').read())
+   
+    
     def sendQuotidien():
         msg = EntryBoxQuotidien.get("1.0",'end-1c').strip()
         EntryBoxQuotidien.delete("0.0",END)
@@ -39,9 +55,8 @@ def openQuotidien():
             chatBoxQuotidien.config(state=NORMAL)
             chatBoxQuotidien.insert(END, "Vous: " + msg + '\n\n')
             chatBoxQuotidien.config(foreground="#446665", font=("Verdana", 12 ))
-            ints =chat.predict_class(msg)
-            res = chat.getResponse(ints, intents)
-            print(res)
+            ints =chatQuotidien.predict_class(msg)
+            res = chatQuotidien.getResponse(ints, intents)
             chatBoxQuotidien.insert(END, "Bot: " + res + '\n\n')
             chatBoxQuotidien.config(state=DISABLED)
             chatBoxQuotidien.yview(END)
@@ -68,6 +83,10 @@ def openQuotidien():
 ##################################################################################################################
 
 def openUrgence():
+    
+    intents = json.loads(open('intents.json').read())
+    
+    trainUrgence.trainChatBot()
     def sendUrgence():
        
         msg = EntryBoxUrgence.get("1.0",'end-1c').strip()
@@ -77,10 +96,10 @@ def openUrgence():
             chatBoxUrgence.insert(END, "Vous: " + msg + '\n\n')
             chatBoxUrgence.config(foreground="#446665", font=("Verdana", 12 ))
     
-            #ints = predict_class(msg)
-            #res = getResponse(ints, intents)
+            ints =chatUrgence.predict_class(msg)
+            res = chatUrgence.getResponse(ints, intents)
         
-            chatBoxUrgence.insert(END, "Aida: " + "Hello There" + '\n\n')
+            chatBoxUrgence.insert(END, "Aida: " + res + '\n\n')
             chatBoxUrgence.config(state=DISABLED)
             chatBoxUrgence.yview(END)
             
@@ -109,7 +128,9 @@ def openUrgence():
 ##################################################################################################################""""
 
 def openQuestion():
-
+    
+    intents = json.loads(open('QuestionGenerale/intents.json').read())
+    trainQuestion.trainChatBot()
     def sendQuestion():
        
         msg = EntryBoxQuestion.get("1.0",'end-1c').strip()
@@ -119,10 +140,10 @@ def openQuestion():
             chatBoxQuestion.insert(END, "Vous: " + msg + '\n\n')
             chatBoxQuestion.config(foreground="#446665", font=("Verdana", 12 ))
     
-            #ints = predict_class(msg)
-            #res = getResponse(ints, intents)
+            ints =chatQuestion.predict_class(msg)
+            res = chatQuestion.getResponse(ints, intents)
         
-            chatBoxQuestion.insert(END, "Aida: " + "Hello There" + '\n\n')
+            chatBoxQuestion.insert(END, "Aida: " + res + '\n\n')
             chatBoxQuestion.config(state=DISABLED)
             chatBoxQuestion.yview(END)
             
@@ -148,7 +169,9 @@ def openQuestion():
 
 ###############################################################################################
 def openPeriodique():
-
+    
+    intents = json.loads(open('SuiviPeriodique/intents.json').read())
+    trainPeriodique.trainChatBot()
     def sendPeriodique():
         
     
@@ -162,8 +185,8 @@ def openPeriodique():
             ChatBox.insert(END, "Vous: " + msg + '\n\n')
             ChatBox.config(foreground="#446665", font=("Verdana", 12 ))
     
-            #ints = predict_class(msg)
-            #res = getResponse(ints, intents)
+            ints =chatPeriodique.predict_class(msg)
+            res = trainPeriodique.getResponse(ints, intents)
 
             
             ChatBox.insert(END, "Aida: " + "Hello There" + '\n\n')

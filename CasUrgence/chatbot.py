@@ -11,8 +11,6 @@ from keras.optimizers import SGD
 
 import json
 import random
-import train_chatbot as train
-
 
 
 lemmatizer = WordNetLemmatizer()
