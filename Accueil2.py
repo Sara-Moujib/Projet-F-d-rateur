@@ -70,14 +70,14 @@ def openQuotidien():
     rootQuotidien.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootQuotidien)
     if(boolm):
-        chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial")
+        chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
         chatBoxQuotidien.config(foreground="black")
         rootQuotidien.config(bg="white")
     else:
-         chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="black", height="8", width="50", font="Arial")
-         chatBoxQuotidien.config(foreground="white")
-         rootQuotidien.config(bg="black")
-    chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+        chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="black", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+        chatBoxQuotidien.config(foreground="white")
+        rootQuotidien.config(bg="black")
+    
 
     chatBoxQuotidien.config(state=DISABLED)
     sendQuotidienButton = Button(rootQuotidien, font=("Verdana",12,'bold'), text="send", width="12", height=5,
@@ -130,14 +130,15 @@ def openUrgence():
     rootUrgence.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootUrgence)
     if(boolm):
-        chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial")
+        chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+        
         chatBoxUrgence.config(foreground="black")
         rootUrgence.config(bg="white")
     else:
-         chatBoxUrgence = Text(rootUrgence, bd=0, bg="black", height="8", width="50", font="Arial")
+         chatBoxUrgence = Text(rootUrgence, bd=0, bg="black", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
          chatBoxUrgence.config(foreground="white")
          rootUrgence.config(bg="black")
-    chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+    
     chatBoxUrgence.config(state=DISABLED)
     sendUrgence = Button(rootUrgence, font=("Verdana",12,'bold'), text="send", width="12", height=5,
                     bd=0, bg="red", activebackground="#3c9d9b",fg='#ffffff',
@@ -189,14 +190,14 @@ def openQuestion():
     rootQuestion.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootQuestion)
     if(boolm):
-        chatBoxQuestion = Text(rootQuestion, bd=0, bg="black", height="8", width="50", font="Arial")
-        chatBoxQuestion.config(foreground="white")
+        chatBoxQuestion = Text(rootQuestion, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+        chatBoxQuestion.config(foreground="black")
         rootQuestion.config(bg="white")
     else:
-         chatBoxQuestion = Text(rootQuestion, bd=0, bg="black", height="8", width="50", font="Arial")
+         chatBoxQuestion = Text(rootQuestion, bd=0, bg="black", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
          chatBoxQuestion.config(foreground="white")
          rootQuestion.config(bg="black")
-    chatBoxQuestion = Text(rootQuestion, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
+    
     chatBoxQuestion.config(state=DISABLED)
     sendQuestionButton = Button(rootQuestion, font=("Verdana",12,'bold'), text="send", width="12", height=5,
                     bd=0, bg="blue", activebackground="#3c9d9b",fg='#ffffff',
