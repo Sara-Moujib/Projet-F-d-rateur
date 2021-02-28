@@ -7,12 +7,12 @@
 
 	{"tag" : "morning_greetings ",
 	 	"patterns" :["Bonjour" , "Bonjour à vous" , "Bonjour à toi"],
-		"responses" : ["Bonjour" , "Bonjour à vous"],
+		"responses" : ["Bonjour" , "Bonjour a vous"],
 	 	"context": [""]
 	},
 	{"tag" : "evening_greetings ",
 	 	"patterns" :["Bonsoir" , "Bonsoir à vous" , "Bonsoir à toi"],
-	 	"responses" : ["Bonsoir" , "Bonsoir à vous"],
+	 	"responses" : ["Bonsoir" , "Bonsoir a vous"],
 	 	"context": [""]
 	},
 	{"tag" : "help ",
@@ -27,7 +27,7 @@
 	},
 
    	{"tag" : "thank_you ",
-		"patterns" :["Merci", "Merci à bientôt" , "Merci aurevoir" , "Merci bonne nuit", "Merci bonne soirée" , "Merci bon fin de journée" , "Merci bonne journée" , "merci à demain"],
+		"patterns" :["Merci", "Merci à bientot" , "Merci aurevoir" , "Merci bonne nuit", "Merci bonne soirée" , "Merci bon fin de journée" , "Merci bonne journée" , "merci à demain"],
 		"responses" : ["Je vous en prie" , "De rien" , "Pas de soucis" ],
 		"context": [""]
 	},
@@ -59,14 +59,14 @@
 	},
 	{"tag":"enfants",
 		"patterns":["Peut on avoir des enfants quand on est une femme diabétique?"],
-		"responses":["Sauf exception (rétinopathie, hypertension sévères…), il n’y a aucune contre-indication aujourd’hui pour les femmes diabétiques à avoir des enfants."
-		,"Oui! mais quand on est diabétique (type 1 ou 2) il faut bien préparer la grossesse avant même la conception. De nombreuses études ont clairement démontré que l’évolution de la grossesse est liée au degré de contrôle glycémique depuis la conception jusqu’à l’accouchement.",
-		"Oui, or  la grossesse sans encadrement expose le fœtus dès les premiers mois et obligera la maman à faire plus d’efforts pour équilibrer son diabète. Autant donc anticiper et parler de votre désir de maternité à votre médecin."],
+		"responses":["Sauf exception (retinopathie, hypertension severes…), il n’y a aucune contre-indication aujourd’hui pour les femmes diabétiques a avoir des enfants."
+		,"Oui! mais quand on est diabetique (type 1 ou 2) il faut bien preparer la grossesse avant meme la conception. De nombreuses études ont clairement démontré que l’évolution de la grossesse est liée au degré de contrôle glycémique depuis la conception jusqu’a l’accouchement.",
+		"Oui, or  la grossesse sans encadrement expose le fœtus dès les premiers mois et obligera la maman a faire plus d’efforts pour équilibrer son diabète. Autant donc anticiper et parler de votre désir de maternité à votre medecin."],
 		"context":[""]
 	},
 	{"tag":"Sport",
 		"patterns":["L'insuline fait-elle grossir?"],
-		"responses":["L’insuline en quantité adéquate ne fait pas grossir par elle-même.","Non elle ne fait pas grossir  mais lorsque l’on s’injecte trop d’insuline, les hypoglycémies sont plus fréquentes et on doit compenser par du sucre et des collations. C’est cela qui fait grossir.",
+		"responses":["L’insuline en quantité adequate ne fait pas grossir par elle-meme.","Non elle ne fait pas grossir  mais lorsque l’on s’injecte trop d’insuline, les hypoglycémies sont plus fréquentes et on doit compenser par du sucre et des collations. C’est cela qui fait grossir.",
 		"Si on mange plus on est obligé de s’injecter plus d’insuline. Mais ce n’est pas l’insuline qui fait grossir ; c’est le fait de manger plus."],
 		"context":[""]
 	},

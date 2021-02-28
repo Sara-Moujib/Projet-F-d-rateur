@@ -4,7 +4,7 @@ from tkinter import messagebox
 from PIL import ImageTk,Image
 from time import strftime
 from datetime import datetime
-
+from unidecode import unidecode
 
 import json
 import pickle
@@ -55,7 +55,7 @@ def openQuotidien():
             chatBoxQuotidien.config(foreground="#446665", font=("Verdana", 12 ))
             ints =chatQuotidien.predict_class(msg)
             res = chatQuotidien.getResponse(ints, intents)
-            chatBoxQuotidien.insert(END, "Bot: " + res + '\n\n')
+            chatBoxQuotidien.insert(END, "Aida: " + unidecode(res) + '\n')
             timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             chatBoxQuotidien.insert(END, timing + '\n\n')
             chatBoxQuotidien.config(state=DISABLED)
@@ -69,6 +69,14 @@ def openQuotidien():
     rootQuotidien.geometry("400x500")
     rootQuotidien.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootQuotidien)
+    if(boolm):
+        chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial")
+        chatBoxQuotidien.config(foreground="black")
+        rootQuotidien.config(bg="white")
+    else:
+         chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="black", height="8", width="50", font="Arial")
+         chatBoxQuotidien.config(foreground="white")
+         rootQuotidien.config(bg="black")
     chatBoxQuotidien = Text(rootQuotidien, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
 
     chatBoxQuotidien.config(state=DISABLED)
@@ -82,6 +90,9 @@ def openQuotidien():
     sendQuotidienButton.place(x=6, y=401, height=40)
     scrollbar.config(command = chatBoxQuotidien.yview )
     scrollbar.place(x=376,y=6, height=386)
+    chatBoxQuotidien.config(state=NORMAL)
+    chatBoxQuotidien.insert(END, "Aida: " + "Bonjour, nous allons faire notre suivi quotidien" + '\n\n')
+    chatBoxQuotidien.config(state=DISABLED)
 
 ##################################################################################################################
 
@@ -102,7 +113,7 @@ def openUrgence():
             ints =chatUrgence.predict_class(msg)
             res = chatUrgence.getResponse(ints, intents)
         
-            chatBoxUrgence.insert(END, "Aida: " + res + '\n\n')
+            chatBoxUrgence.insert(END, "Aida: " + res.enocode("utf-8") + '\n')
             timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             chatBoxUrgence.insert(END, timing + '\n\n')
             chatBoxUrgence.config(state=DISABLED)
@@ -118,6 +129,14 @@ def openUrgence():
     rootUrgence.geometry("400x500")
     rootUrgence.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootUrgence)
+    if(boolm):
+        chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial")
+        chatBoxUrgence.config(foreground="black")
+        rootUrgence.config(bg="white")
+    else:
+         chatBoxUrgence = Text(rootUrgence, bd=0, bg="black", height="8", width="50", font="Arial")
+         chatBoxUrgence.config(foreground="white")
+         rootUrgence.config(bg="black")
     chatBoxUrgence = Text(rootUrgence, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
     chatBoxUrgence.config(state=DISABLED)
     sendUrgence = Button(rootUrgence, font=("Verdana",12,'bold'), text="send", width="12", height=5,
@@ -129,8 +148,9 @@ def openUrgence():
     sendUrgence.place(x=6, y=401, height=40)
     scrollbar.config(command = chatBoxUrgence.yview )
     scrollbar.place(x=376,y=6, height=386)
-
-
+    chatBoxUrgence.config(state=NORMAL)
+    chatBoxUrgence.insert(END, "Aida: " + "Bonjour,Quel est votre cas d'urgence? (Appelez le 115)" + '\n\n')
+    chatBoxUrgence.config(state=DISABLED)
     
 
 ##################################################################################################################""""
@@ -168,6 +188,14 @@ def openQuestion():
     rootQuestion.geometry("400x500")
     rootQuestion.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootQuestion)
+    if(boolm):
+        chatBoxQuestion = Text(rootQuestion, bd=0, bg="black", height="8", width="50", font="Arial")
+        chatBoxQuestion.config(foreground="white")
+        rootQuestion.config(bg="white")
+    else:
+         chatBoxQuestion = Text(rootQuestion, bd=0, bg="black", height="8", width="50", font="Arial")
+         chatBoxQuestion.config(foreground="white")
+         rootQuestion.config(bg="black")
     chatBoxQuestion = Text(rootQuestion, bd=0, bg="white", height="8", width="50", font="Arial",yscrollcommand = scrollbar.set)
     chatBoxQuestion.config(state=DISABLED)
     sendQuestionButton = Button(rootQuestion, font=("Verdana",12,'bold'), text="send", width="12", height=5,
@@ -181,11 +209,9 @@ def openQuestion():
     
     scrollbar.config(command = chatBoxQuestion.yview )
     scrollbar.place(x=376,y=6, height=386)
-    chatImage=ImageTk.PhotoImage(Image.open("Quotidien.jpg"))
-    
-    ImageLabel=Label(rootQuestion,image=chatImage).pack(side=TOP,anchor=NE)
-    
-
+    chatBoxQuestion.config(state=NORMAL)
+    chatBoxQuestion.insert(END, "Aida: " + "Bonjour,Quelle est votre question?" + '\n\n')
+    chatBoxQuestion.config(state=DISABLED)
 ###############################################################################################
 def openPeriodique():
     
@@ -200,13 +226,12 @@ def openPeriodique():
 
         if msg != '':
             ChatBox.config(state=NORMAL)
-            
             ChatBox.insert(END, "Vous: " + msg + '\n\n')
             ChatBox.config(foreground="#446665", font=("Verdana", 12 ))
     
             ints =chatPeriodique.predict_class(msg)
-            res = trainPeriodique.getResponse(ints,intents)
-            ChatBox.insert(END, "Aida: " + res + '\n\n')
+            res = trainPeriodique.getResponse(ints,intents).enocode("utf-8")
+            ChatBox.insert(END, "Aida: " + res + '\n')
             timing=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             ChatBox.insert(END, timing + '\n\n')
             ChatBox.config(state=DISABLED)
@@ -222,12 +247,19 @@ def openPeriodique():
     rootPeriodique.geometry("400x500")
     rootPeriodique.resizable(width=FALSE, height=FALSE)
     scrollbar = Scrollbar(rootPeriodique)
-    ChatBox = Text(rootPeriodique, bd=0, bg="white", height="8", width="50", font="Arial")
+    if(boolm):
+        ChatBox = Text(rootPeriodique, bd=0, bg="white", height="8", width="50", font="Arial")
+        ChatBox.config(foreground="black")
+        rootPeriodique.config(bg="white")
+    else:
+         ChatBox = Text(rootPeriodique, bd=0, bg="black", height="8", width="50", font="Arial")
+         ChatBox.config(foreground="white")
+         rootPeriodique.config(bg="black")
     ChatBox.config(state=DISABLED)
     sendPeriodiqueButton = Button(rootPeriodique, font=("Verdana",12,'bold'), text="send", width="12", height=5,
                     bd=0, bg="violet", activebackground="#3c9d9b",fg='#ffffff',
-                    command= sendPeriodique )
-    EntryBoxPeriodique = Text(rootPeriodique, bd=0, bg="white",width="29", height="5", font="Arial")
+                    command= sendPeriodique )             
+    EntryBoxPeriodique = Text(rootPeriodique, bd=0, bg="white",width="29", height="5", font="Arial")   
     ChatBox.place(x=6,y=6, height=386, width=370)
     EntryBoxPeriodique.place(x=128, y=401, height=40, width=250)
     scrollbar = Scrollbar(rootPeriodique, command=ChatBox.yview, cursor="heart")
@@ -235,7 +267,9 @@ def openPeriodique():
     sendPeriodiqueButton.place(x=6, y=401, height=40) 
     scrollbar.config(command = ChatBox.yview )
     scrollbar.place(x=376,y=6, height=386)
-    
+    ChatBox.config(state=NORMAL)
+    ChatBox.insert(END, "Aida: " + "Bonjour, nous allons faire notre suivi périodique" + '\n\n')
+    ChatBox.config(state=DISABLED)
 #########################################################################################"
 boolm=True
 def protectEye():

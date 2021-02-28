@@ -35,7 +35,6 @@ def clean_up_sentence(sentence):
 def bag_of_words(sentence, words, show_details=True):
     # tokenizing patterns
     sentence_words = clean_up_sentence(sentence)
-    print("hi I am in bag of words")
     # bag of words - vocabulary matrix
     bag = [0]*len(words)
     for s in sentence_words:
@@ -61,7 +60,7 @@ def predict_class(sentence):
     return return_list
 
 def getResponse(ints, intents_json):
-    print("hi I am in get response")
+    
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:

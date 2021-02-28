@@ -59,11 +59,12 @@
 	},
 	{"tag":"enfants",
 		"patterns":["Peut on avoir des enfants quand on est une femme diabétique?"],
-		"responses":["Sauf exception (rétinopathie, hypertension sévères…), il n’y a aucune contre-indication aujourd’hui pour les femmes diabétiques à avoir des enfants."
-		,"Oui! mais quand on est diabétique (type 1 ou 2) il faut bien préparer la grossesse avant même la conception. De nombreuses études ont clairement démontré que l’évolution de la grossesse est liée au degré de contrôle glycémique depuis la conception jusqu’à l’accouchement.",
-		"Oui, or  la grossesse sans encadrement expose le fœtus dès les premiers mois et obligera la maman à faire plus d’efforts pour équilibrer son diabète. Autant donc anticiper et parler de votre désir de maternité à votre médecin."],
+		"responses":["Sauf exception (retinopathie, hypertension severes…), il n’y a aucune contre-indication aujourd’hui pour les femmes diabetiques a avoir des enfants."
+		,"Oui! mais quand on est diabetique (type 1 ou 2) il faut bien preparer la grossesse avant même la conception. De nombreuses etudes ont clairement demontre que l’evolution de la grossesse est liee au degre de controle glycemique depuis la conception jusqu’a l’accouchement.",
+		"Oui, or  la grossesse sans encadrement expose le foetus dans les premiers mois et obligera la maman a faire plus d’efforts pour equilibrer son diabete. Autant donc anticiper et parler de votre desir de maternite a votre medecin."],
 		"context":[""]
 	},
+	
 	{"tag":"Sport",
 		"patterns":["L'insuline fait-elle grossir?"],
 		"responses":["L’insuline en quantité adéquate ne fait pas grossir par elle-même.","Non elle ne fait pas grossir  mais lorsque l’on s’injecte trop d’insuline, les hypoglycémies sont plus fréquentes et on doit compenser par du sucre et des collations. C’est cela qui fait grossir.",
